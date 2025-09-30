@@ -9,47 +9,50 @@ int main(int argc, const char *argv[])
 {
 	int log10Unit;
 	double masse_1, masse_2, distance, force;
-	const G = 6.67430e-11; // Constante gravitationnelle en m^3 kg^-1 s^-2
+	double G = 6.67430e-11; // Constante gravitationnelle en m^3 kg^-1 s^-2
 
 	printf("insérer la première masse :(notation ingénieur):");
 	scanf("%lf", &masse_1);
 
-	//test que la valeur est utilisable
-	if(masse_1 <= 0){
+	// test que la valeur est utilisable
+	if (masse_1 <= 0)
+	{
 		printf("Erreur: la masse doit être un nombre positif.\n");
 		return 1; // Quitter le programme avec un code d'erreur
 	}
-	if (isnan(masse_1) || isinf(masse_1)) {
+	if (isnan(masse_1) || isinf(masse_1))
+	{
 		printf("Erreur: la masse doit être un nombre valide.\n");
 		return 1; // Quitter le programme avec un code d'erreur
 	}
-	
 
 	printf("insérer la deuxième masse (notation ingénieur):");
 	scanf("%lf", &masse_2);
 
-	if(masse_2 <= 0){
+	if (masse_2 <= 0)
+	{
 		printf("Erreur: la masse doit être un nombre positif.\n");
 		return 1; // Quitter le programme avec un code d'erreur
 	}
-	if (isnan(masse_2) || isinf(masse_2)) {
+	if (isnan(masse_2) || isinf(masse_2))
+	{
 		printf("Erreur: la masse doit être un nombre valide.\n");
 		return 1; // Quitter le programme avec un code d'erreur
 	}
-	
 
 	printf("insérer la distance entre les deux masses (en kg):");
 	scanf("%lf", &distance);
 
-	if(distance <= 0){
+	if (distance <= 0)
+	{
 		printf("Erreur: la masse doit être un nombre positif.\n");
 		return 1; // Quitter le programme avec un code d'erreur
 	}
-	if (isnan(distance) || isinf(distance)) {
+	if (isnan(distance) || isinf(distance))
+	{
 		printf("Erreur: la masse doit être un nombre valide.\n");
 		return 1; // Quitter le programme avec un code d'erreur
 	}
-	
 
 	force = G * (masse_1 * masse_2) / (distance * distance);
 

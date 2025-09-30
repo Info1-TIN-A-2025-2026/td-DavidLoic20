@@ -1,5 +1,65 @@
 tests:
   - name: test1
-    stdin: "0"
-    stdout: 
-      - contains: ""
+    command: gcc -o td td.c -lm && ./td
+    input: |
+      5.97e24
+      7.35e22
+      3.84e8
+    expected_output: |
+      La force gravitationnelle entre les deux masses est de : 1.982110e+20 N
+  - name: test2
+    command: gcc -o td td.c -lm && ./td
+    input: |
+      1.989e30
+      5.972e24
+      1.496e11
+    expected_output: |
+      La force gravitationnelle entre les deux masses est de : 3.542396e+22 N
+  - name: test3
+    command: gcc -o td td.c -lm && ./td
+    input: |
+      7.348e22
+      1.989e30
+      1.496e11
+    expected_output: |
+      La force gravitationnelle entre les deux masses est de : 3.542396e+22 N
+  - name: test4
+    command: gcc -o td td.c -lm && ./td
+    input: |
+      -5.97e24
+      7.35e22
+      3.84e8
+    expected_output: |
+      Erreur: la masse doit être un nombre positif.
+  - name: test5
+    command: gcc -o td td.c -lm && ./td
+    input: |
+      5.97e24
+      7.35e22
+      -3.84e8
+    expected_output: |
+      Erreur: la masse doit être un nombre positif.
+  - name: test6
+    command: gcc -o td td.c -lm && ./td
+    input: |
+      abc
+      7.35e22
+      3.84e8
+    expected_output: |
+      Erreur: la masse doit être un nombre valide.
+  - name: test7
+    command: gcc -o td td.c -lm && ./td
+    input: |
+      5.97e24
+      xyz
+      3.84e8
+    expected_output: |
+      Erreur: la masse doit être un nombre valide.
+  - name: test8
+    command: gcc -o td td.c -lm && ./td
+    input: |
+      5.97e24
+      7.35e22
+      pqr
+    expected_output: |
+      Erreur: la masse doit être un nombre valide.
