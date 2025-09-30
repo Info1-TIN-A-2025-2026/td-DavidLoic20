@@ -31,6 +31,9 @@ $(ODIR):
 clean:
 	$(RM) $(EXEC)
 	$(RM) -rf $(ODIR)
+test: ./app
+	baygon -v -t t.yaml ./app
+
 
 .PHONY:	clean all
 .DEFAULT: all 
