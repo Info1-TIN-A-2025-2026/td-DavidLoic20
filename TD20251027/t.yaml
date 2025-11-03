@@ -1,0 +1,5 @@
+tests:
+  - name: test1
+    stdin: "0"
+    stdout: 
+      - contains: ""
